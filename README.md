@@ -2,7 +2,7 @@
 This is a YouTube clone project built with React and an API provided by Gro.care. The goal of this project is to replicate some of the key features and functionalities of YouTube, allowing users find videos, watch them, and interact with the YouTube-like interface.
 
 ## Demo
-Check out the deployed site for this project: [YouTube Clone Demo](https://6473b79d82d50977b3b6f9e5--super-parfait-2c0617.netlify.app/)
+Check out the deployed site for this project: [YouTube Clone Demo](https://6473c30abf49b7782f3a7187--voluble-macaron-5343f2.netlify.app/)
 
 ## Features
 **Video Player**: Watch videos with a user-friendly video player that supports playback controls.
