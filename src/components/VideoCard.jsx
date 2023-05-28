@@ -6,14 +6,14 @@ import { CheckCircle } from '@mui/icons-material';
 import { demoThumbnailUrl, demoVideoTitle, demoChannelTitle, demoVideoUrl, demoChannelUrl } from '../utils/constants';
 
 
-const VideoCard = ({video, vid}) => {
+const VideoCard = ({video, vid, pgNo}) => {
 var videoID = video.postId;
 var videoTitle = video.submission.title;
 var videoThumbnail = video.submission.thumbnail;
 var channel = video.creator;
   return (
     <Card sx={{width: {md: '320px', xs:'100%'}, boxShadow:'none', borderRadius:0}}>
-        <Link to={videoID?`/video/${videoID}/${vid}`: demoVideoUrl}>
+        <Link to={videoID?`page/${pgNo}/video/${videoID}/${vid}`: demoVideoUrl}>
             <CardMedia 
                 image={videoThumbnail}
                 alt="title"
@@ -21,7 +21,7 @@ var channel = video.creator;
             />
         </Link>
         <CardContent sx={{backgroundColor: '#1e1e1e', height:'106px'}}>
-            <Link to={videoID?`/video/${videoID}`: demoVideoUrl}>
+            <Link to={videoID?`page/${pgNo}/video/${videoID}/${vid}`: demoVideoUrl}>
                 <Typography variant="subtitle1" fontWeight="bold" color="#FFF">
                     {videoTitle.slice(0, 60) || demoVideoTitle.slice(0,60)}
                 </Typography>

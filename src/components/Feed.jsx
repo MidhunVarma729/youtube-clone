@@ -1,18 +1,20 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-import {Box, Stack, Typography } from '@mui/material';
-import {Sidebar, Videos} from './'
+import {Box, Stack, Typography, Button, ButtonGroup } from '@mui/material';
+import {Sidebar, Videos, ButtonMap} from './'
 import { fetchFromAPI } from '../utils/fetchFromAPI';
 
+const buttonsArray = [0,1,2,3,4,5,6,7,8,9];
 
 const Feed = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('New');
   const [videos, setVideos] = useState([]);
+  const [pgNo, setPageNo] = useState(0);
 
   useEffect(()=>{
-    fetchFromAPI().then((d) => setVideos(d.posts))
+    fetchFromAPI(0).then((d) => setVideos(d.posts))
   }, []);
 
 
@@ -31,9 +33,22 @@ const Feed = () => {
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
           {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
-        <Videos videos={videos} />
-      </Box>
+        <Videos videos={videos} pageNumber={pgNo}/>
 
+      <Box p={2} sx={{ overflowY: "auto", flex: 2 }}>
+        <ButtonGroup variant="text" aria-label="text button group" sx={{display:"flex", color:"red", justifyContent: "center"}}>
+          {buttonsArray.map((num)=>(
+              <ButtonMap
+                key={num}
+                buttonId={num}
+                changePage={setVideos}
+                CPN={setPageNo}
+              />
+            ))}
+        </ButtonGroup>
+      </Box> 
+
+      </Box>
     </Stack>
   );
 };

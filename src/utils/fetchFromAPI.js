@@ -10,7 +10,7 @@ const options = {
   };
 
 
-export const fetchFromAPI = async() => {
-    const {data} = await axios.get(`${BASE_URL}`, options);
+export const fetchFromAPI = async(pgNo) => {
+    const {data} = await axios.get(`${BASE_URL}?page=${pgNo}`, options);
     return data.data;
 }

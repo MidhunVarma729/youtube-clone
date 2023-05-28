@@ -11,11 +11,11 @@ import { fetchFromAPI } from '../utils/fetchFromAPI';
 import { demoChannelTitle, demoVideoUrl, demoChannelUrl} from '../utils/constants';
 
 const VideoDetail = () => {
-  const {id, vid} = useParams();
+  const {id, vid, pgNo} = useParams();
   const [curVideoDetail, setVideoDetail] = useState(null);
 
   useEffect(()=>{
-    fetchFromAPI().then((d)=>setVideoDetail(d.posts[vid]))
+    fetchFromAPI(pgNo).then((d)=>setVideoDetail(d.posts[vid]))
   }, [id])
 
 

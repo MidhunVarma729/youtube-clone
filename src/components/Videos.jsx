@@ -9,7 +9,7 @@ const Videos = (props) => {
     <Stack direction="row" flexWrap="wrap" justifyContent="start" gap={2}>
       {props.videos.map((item, idx) =>(
         <Box key={idx}>
-        <VideoCard video={item} vid={idx}/>
+        <VideoCard video={item} vid={idx} pgNo={props.pageNumber}/>
         </Box>
       ))}
     </Stack>
